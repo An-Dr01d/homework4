@@ -3,7 +3,7 @@ include 'autoload.php';
 
 $user1 = new \App\base(26, 1, 30,true, false);
 echo "Сумма \"Базового\" = ";
-echo $user1->countAge(); //проверка на диапазон возроста
+echo $user1->countAge(); //проверка возраста
 echo $user1->yearsCounter().' руб.';
 echo '<br>';
 $user2 = new \App\onAnHour(26, 40, 30,false, false);

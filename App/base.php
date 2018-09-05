@@ -59,5 +59,4 @@ class base extends templateTariff
     public function priceForStudents() {
         return ($this->priceDistance() + $this->priceTime()) * 1.1;
     }
-
 }

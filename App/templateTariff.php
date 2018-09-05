@@ -27,12 +27,12 @@ abstract class templateTariff implements Calc
         }
     }
     public abstract function yearsCounter();
-    public function __construct($years, $times, $distance, $gps = false, $thoDriver = false)
+    public function __construct($years, $times, $distance, $gps = false, $twoDriver = false)
     {
         $this->years = $years;
         $this->times = $times;
         $this->distance = $distance;
         $this->gps = $gps;
-        $this->thoDriver = $thoDriver;
+        $this->thoDriver = $twoDriver;
     }
 }

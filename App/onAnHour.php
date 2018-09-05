@@ -59,5 +59,4 @@ class onAnHour extends templateTariff
             return $this->priceForStudents() + $this->twoDriver() + ($this->times * $this->gpsCost());
         }
     }
-
 }
