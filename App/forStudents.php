@@ -9,6 +9,23 @@ class forStudents extends templateTariff
     const PRICE_PER_TIME = 1;
     const PRICE_PER_DISTANCE = 4;
     use gps, twoDriver;
+
+    // Рассчет стоимости часа
+    public function priceTime()
+    {
+        return $this->times * self::PRICE_PER_TIME;
+    }
+    // Рассчет стоимости км
+    public function priceDistance()
+    {
+        return $this->distance * self::PRICE_PER_DISTANCE;
+    }
+
+    //  Рассчет общей стоимости
+    public function distanceAndTime() {
+        return $this->priceDistance() + $this->priceTime();
+    }
+
     // Проверка на студента
     public function yearsCounter()
     {
@@ -17,7 +34,7 @@ class forStudents extends templateTariff
         } elseif ($this->years < 21) {
             return $this->studentPrice();
         } else {
-            return "Тариф доступен только для студентов";
+            return "Тариф студенческий не доступен, когда возраст больше 25";
         }
     }
     //  Проверка активации доп. услуг
@@ -29,7 +46,7 @@ class forStudents extends templateTariff
             return $this->distanceAndTime() + $this->times * $this->gpsCost();
         }
     }
-    //  Проверка активации доп. услуг для студентов
+    //  ПРоверка активации доп. услуг для студентов
     public function studentPrice()
     {
         if ($this->gps === false) {
@@ -42,18 +59,5 @@ class forStudents extends templateTariff
     public function priceForStudents() {
         return ($this->priceDistance() + $this->priceTime()) * 1.1;
     }
-    //  Рассчет общей стоимости
-    public function distanceAndTime() {
-        return $this->priceDistance() + $this->priceTime();
-    }
-    // Рассчет стоимости км
-    public function priceDistance()
-    {
-        return $this->distance * self::PRICE_PER_DISTANCE;
-    }
-    // Рассчет стоимости часа
-    public function priceTime()
-    {
-        return $this->times * self::PRICE_PER_TIME;
-    }
+
 }

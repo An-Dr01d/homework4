@@ -16,7 +16,7 @@ echo "Сумма \"Суточного\" = ";
 echo $user3->countAge();
 echo $user3->yearsCounter().' руб.';
 echo '<br>';
-$user4 = new \App\forStudents(26, 40, 30,false, false);
+$user4 = new \App\forStudents(23, 40, 30,false, false);
 echo "Сумма \"Студенческого\" = ";
 echo $user4->countAge();
 echo $user4->yearsCounter().' руб.';
