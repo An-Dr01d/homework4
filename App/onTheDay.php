@@ -10,7 +10,8 @@ class onTheDay extends templateTariff
     const PRICE_PER_TIME = 1000;
     const PRICE_PER_DISTANCE = 1;
     use gps, twoDriver;
-    // Result with check on students
+
+    // Проверка на студента
     public function yearsCounter()
     {
         if($this->years > 21) {
@@ -19,7 +20,7 @@ class onTheDay extends templateTariff
             return $this->studentPrice();
         }
     }
-    //  Check for activation of additional services for all users
+    //  Проверка активации доп. услуг
     public function standardPrice()
     {
         if (!$this->gps && !$this->thoDriver) {
@@ -32,7 +33,7 @@ class onTheDay extends templateTariff
             return $this->distanceAndTime() + $this->twoDriver() + ($this->times * $this->gpsCost());
         }
     }
-    //  Check for activation of additional services for students
+    //  Рассчет стоимости для студентов с доп. услугами
     public function studentPrice()
     {
         if (!$this->gps && !$this->thoDriver) {
@@ -61,6 +62,6 @@ class onTheDay extends templateTariff
     // Рассчет стоимости часа
     public function priceTime()
     {
-        return floor($this->times/24) * self::PRICE_PER_TIME;
+        return ceil($this->times/24) * self::PRICE_PER_TIME;
     }
 }
