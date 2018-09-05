@@ -19,6 +19,10 @@ class onAnHour extends templateTariff
     {
         return ceil($this->times/60) * self::PRICE_PER_TIME ;
     }
+    //  Стоимость часа для студентов
+    public function priceForStudents() {
+        return $this->priceTime() * 1.1;
+    }
 
     // Проверка на студента
     public function yearsCounter()
@@ -54,10 +58,6 @@ class onAnHour extends templateTariff
         } elseif (($this->gps === true) && ($this->thoDriver === true)) {
             return $this->priceForStudents() + $this->twoDriver() + ($this->times * $this->gpsCost());
         }
-    }
-    //  Стоимость часа для студентов
-    public function priceForStudents() {
-        return $this->priceTime() * 1.1;
     }
 
 }
